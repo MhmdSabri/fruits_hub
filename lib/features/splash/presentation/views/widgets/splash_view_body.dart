@@ -1,11 +1,9 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruits_hub_project/core/services/shared_preferences_singleton.dart';
-import 'package:fruits_hub_project/core/utils/app_images.dart';
-import 'package:fruits_hub_project/features/auth/presentation/views/signin_view.dart';
-import 'package:fruits_hub_project/features/on_boarding/presentation/view/on_boarding_view.dart';
+import 'package:fruits_hub/core/services/shared_preferences_singleton.dart';
+import 'package:fruits_hub/core/utils/app_images.dart';
+import 'package:fruits_hub/features/auth/presentation/views/signin_view.dart';
+import 'package:fruits_hub/features/on_boarding/presentation/view/on_boarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -44,10 +42,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     bool isOnBoardingViewSeen = Prefs.getBool("kIsOnBoardingViewSeen");
 
     Future.delayed(Duration(seconds: 3), () {
-      if(isOnBoardingViewSeen){
-        
-      Navigator.pushReplacementNamed(context, SigninView.routeName);
-      }else{
+      if (isOnBoardingViewSeen) {
+        Navigator.pushReplacementNamed(context, SigninView.routeName);
+      } else {
         Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
       }
     });
